@@ -10,7 +10,7 @@ The `package.json` file started its career in Node.js as one way to support fold
 In principle there is no direct connection between the existence of a `package.json` and its folder being a module, but in practice it would be quite natural for humans and automated processes to assume one, running into errors or irritations on trying to access such a non-existing module.
 
 
-## Catching possible access errors by offering a 
+## Catching possible access errors by dummy `index.js`
 
 Since automated processes are also recognizing a file `index.js` as a JavaScript entry point, you can store a dummy `index.js` next to `package.json` with this content:
 
