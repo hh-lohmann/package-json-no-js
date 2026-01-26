@@ -16,14 +16,19 @@ Since automated processes are also recognizing a file `index.js` as a JavaScript
 
 ```js
   // index.js
-  import package_info from './package.json' with { type: "json" };
+  const package_info = require('node:fs').existsSync( './package.json' )
+    ? require( './package.json' )
+    : {}
   console.log( '' 
     + '\n#'
-    + '\n#\t' + package_info.name + ': ' + package_info.description
+    + '\n#\t'
+    + ( package_info.name ? package_info.name + ': ' + package_info.description : '' )
     + '\n#\t' + 'This package contains only manual instructions - consult file://./README.md'
     + '\n#\n'
-  );
-  export const README = 'Package ' +  package_info.name + ': see console' ;
+  )
+  exports.README =
+    ( package_info.name ? 'Package ' + package_info.name + ': ' : '' )
+    + 'see console'
 ```
 
 Accessing the folder with the "entry-less" `package.json` and the dummy `index.js` will print a message to console and offer the export `README` that resolves to a string containing a hint to refer to the console output:
@@ -43,7 +48,7 @@ Accessing the folder with the "entry-less" `package.json` and the dummy `index.j
 ```
 
 Note that:
-  * the `package.json` is imported to use its `name` and `description` properties
+  * this `index.js` will also work if no `package.json` exist, but `name` and `description` then will miss in the output
   * `README.md` is addressed with the `file://` protocol and `./` for location "this folder" - depending on your system's settings this should allow to open it directly from console with `Ctrl+Click`
 
 You may adjust details to your needs.
