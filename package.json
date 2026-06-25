@@ -1,9 +1,10 @@
 {
-  "name": "package.json-no-js",
+  "name": "package-json-no-js",
   "description": "Using package.json without JavaScript exports",
   "author": {
     "name": "hh lohmann",
     "email": "hh.lohmann@gmail.com",
     "url": "https://hh-lohmann.github.io"
-  }
+  },
+  "version": "1.0.1"
 }

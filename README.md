@@ -1,3 +1,5 @@
+###### Concept
+
 # Using package.json without JavaScript exports
 
 Offering a `package.json` without JavaScript code to import may lead users and automated processes to think the package is broken. To clarify that the package intentionally exports no code (directly) you can put a piece of JavaScript to instruct verbatim to refer to e.g. the README.md file.
